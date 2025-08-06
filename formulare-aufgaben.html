@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Formular Übungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .exercise {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .exercise h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .easy { background: #d4edda; color: #155724; }
+        .medium { background: #fff3cd; color: #856404; }
+        .hard { background: #f8d7da; color: #721c24; }
+        
+        .hint {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .hint h4 {
+            margin: 0 0 10px 0;
+            color: #1976d2;
+        }
+        
+        .example {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Basis-Styling für Formular-Elemente */
+        form {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        button[type="reset"] {
+            background-color: #95a5a6;
+        }
+        
+        button[type="reset"]:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        fieldset {
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        legend {
+            font-weight: bold;
+            color: #34495e;
+            padding: 0 10px;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Formular Übungen</h1>
+    <p>Löse die Aufgaben Schritt für Schritt. Das CSS ist bereits vorgegeben!</p>
+
+    <!-- Aufgabe 1: Einfaches Textfeld -->
+    <div class="exercise">
+        <span class="difficulty easy">Leicht</span>
+        <h3>Aufgabe 1: Einfaches Textfeld</h3>
+        <p><strong>Ziel:</strong> Erstelle ein einfaches Eingabefeld für den Vornamen</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Ein Label mit dem Text "Vorname:"</li>
+            <li>Ein input vom type="text"</li>
+            <li>Das input soll die id="vorname" haben</li>
+            <li>Das Label soll mit dem input verknüpft sein (for-Attribut)</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Tipp:</h4>
+            <p>Die Verknüpfung funktioniert so: Das <code>for</code>-Attribut im Label muss den gleichen Wert haben wie die <code>id</code> im Input.</p>
+        </div>
+        
+        <div class="example">
+&lt;label for="meine-id"&gt;Beschriftung:&lt;/label&gt;<br>
+&lt;input type="text" id="meine-id" name="mein-name"&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 2: Pflichtfeld mit Stern -->
+    <div class="exercise">
+        <span class="difficulty easy">Leicht</span>
+        <h3>Aufgabe 2: Pflichtfeld markieren</h3>
+        <p><strong>Ziel:</strong> Mache das Vorname-Feld zu einem Pflichtfeld</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Füge das required-Attribut hinzu</li>
+            <li>Ergänze einen roten Stern (*) im Label</li>
+            <li>Der Stern soll die CSS-Klasse "required" haben</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Pseudocode:</h4>
+            <p>1. Nimm deine Lösung aus Aufgabe 1<br>
+            2. Füge <code>required</code> zum input hinzu<br>
+            3. Schreibe im Label: <code>&lt;span class="required"&gt;*&lt;/span&gt;</code></p>
+        </div>
+        
+        <div class="example">
+&lt;input type="text" id="beispiel" required&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 3: Verschiedene Input-Typen -->
+    <div class="exercise">
+        <span class="difficulty easy">Leicht</span>
+        <h3>Aufgabe 3: Verschiedene Input-Typen</h3>
+        <p><strong>Ziel:</strong> Erstelle verschiedene Eingabefelder</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Email-Feld (type="email")</li>
+            <li>Telefon-Feld (type="tel")</li>
+            <li>Datum-Feld (type="date")</li>
+            <li>Alle mit passenden Labels</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 HTML Input Types Referenz:</h4>
+            <p><a href="https://developer.mozilla.org/de/docs/Web/HTML/Element/input" target="_blank">MDN Input Types</a> - Hier findest du alle verfügbaren Input-Typen</p>
+        </div>
+        
+        <div class="example">
+&lt;label for="geburtstag"&gt;Geburtstag:&lt;/label&gt;<br>
+&lt;input type="date" id="geburtstag" name="geburtstag"&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 4: Dropdown-Menü -->
+    <div class="exercise">
+        <span class="difficulty easy">Leicht</span>
+        <h3>Aufgabe 4: Dropdown-Menü erstellen</h3>
+        <p><strong>Was ist ein Select/Dropdown? 🤔</strong></p>
+        <p>Ein <code>&lt;select&gt;</code> ist ein <strong>Dropdown-Menü</strong> - ein Feld, das du anklickst und dann klappt eine Liste mit Optionen auf. Wie ein Menü im Restaurant: Du siehst erst nur "Hauptgerichte", aber wenn du klickst, siehst du alle Gerichte!</p>
+        
+        <p><strong>Ziel:</strong> Erstelle eine Auswahl für die Anrede</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Select-Element mit den Optionen: "Herr", "Frau", "Divers"</li>
+            <li>Erste Option: "Bitte wählen" (value="")</li>
+            <li>Required-Attribut hinzufügen</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Struktur:</h4>
+            <p>1. &lt;select&gt; (öffnet das Dropdown)<br>
+            2. Darin mehrere &lt;option&gt; Elemente<br>
+            3. Erste Option ohne value (oder value="") für Placeholder</p>
+        </div>
+        
+        <div class="example">
+&lt;select id="farbe" name="farbe"&gt;<br>
+&nbsp;&nbsp;&lt;option value=""&gt;Bitte wählen&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="rot"&gt;Rot&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="blau"&gt;Blau&lt;/option&gt;<br>
+&lt;/select&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 5: Radio Buttons -->
+    <div class="exercise">
+        <span class="difficulty medium">Mittel</span>
+        <h3>Aufgabe 5: Radio Buttons für Teilnahme-Art</h3>
+        <p><strong>Was sind Radio Buttons? 🤔</strong></p>
+        <p>Radio Buttons sind <strong>runde Auswahlfelder</strong>, wo du nur <strong>EINE Option</strong> auswählen kannst. Wie bei einem alten Radio: Drückst du einen Knopf, springt der andere wieder raus. Perfekt für "Entweder-Oder" Entscheidungen!</p>
+        
+        <p><strong>Ziel:</strong> Wähle zwischen "Vor Ort" oder "Online" Teilnahme</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Zwei Radio Buttons mit gleichem name-Attribut</li>
+            <li>Values: "vor_ort" und "online"</li>
+            <li>Labels für beide Optionen</li>
+            <li>Gruppierung in einem div</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Radio Button Regeln:</h4>
+            <p>- Alle Radio Buttons einer Gruppe brauchen das <strong>gleiche name</strong><br>
+            - Verschiedene <code>value</code> und <code>id</code><br>
+            - Label zeigt mit <code>for</code> auf die jeweilige <code>id</code></p>
+        </div>
+        
+        <div class="example">
+&lt;div&gt;<br>
+&nbsp;&nbsp;&lt;input type="radio" id="groß" name="größe" value="l"&gt;<br>
+&nbsp;&nbsp;&lt;label for="groß"&gt;Large&lt;/label&gt;<br>
+&nbsp;&nbsp;&lt;input type="radio" id="klein" name="größe" value="s"&gt;<br>
+&nbsp;&nbsp;&lt;label for="klein"&gt;Small&lt;/label&gt;<br>
+&lt;/div&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 6: Checkboxen für Workshops -->
+    <div class="exercise">
+        <span class="difficulty medium">Mittel</span>
+        <h3>Aufgabe 6: Checkbox-Gruppe für Workshops</h3>
+        <p><strong>Was sind Checkboxen? 🤔</strong></p>
+        <p>Checkboxen sind <strong>eckige Kästchen zum Abhaken</strong>. Im Gegensatz zu Radio Buttons kannst du hier <strong>MEHRERE Optionen</strong> gleichzeitig auswählen. Wie eine Einkaufsliste: Du kannst Äpfel UND Bananen UND Brot abhaken!</p>
+        
+        <p><strong>Ziel:</strong> Mehrere Workshops auswählbar machen</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>3 Checkboxen: "KI-Grundlagen", "Cloud-Architektur", "Cybersecurity"</li>
+            <li>Name: "workshops" (alle gleich)</li>
+            <li>Verschiedene Values: "ki", "cloud", "security"</li>
+            <li>In einem div gruppieren</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Checkbox vs Radio:</h4>
+            <p>- <strong>Radio:</strong> Nur EINE Auswahl möglich (rund ●)<br>
+            - <strong>Checkbox:</strong> MEHRERE Auswahl möglich (eckig ☑)<br>
+            - Bei Checkboxen: gleiches <code>name</code>, verschiedene <code>value</code></p>
+        </div>
+        
+        <div class="example">
+&lt;div&gt;<br>
+&nbsp;&nbsp;&lt;input type="checkbox" id="pizza" name="essen" value="pizza"&gt;<br>
+&nbsp;&nbsp;&lt;label for="pizza"&gt;Pizza&lt;/label&gt;<br>
+&nbsp;&nbsp;&lt;input type="checkbox" id="pasta" name="essen" value="pasta"&gt;<br>
+&nbsp;&nbsp;&lt;label for="pasta"&gt;Pasta&lt;/label&gt;<br>
+&lt;/div&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 7: Fieldset mit Legend -->
+    <div class="exercise">
+        <span class="difficulty medium">Mittel</span>
+        <h3>Aufgabe 7: Fieldset für Gruppierung</h3>
+        <p><strong>Was ist ein Fieldset? 🤔</strong></p>
+        <p>Ein <code>&lt;fieldset&gt;</code> ist wie ein <strong>Rahmen um zusammengehörige Formularfelder</strong>. Es zeichnet eine sichtbare Box drum herum. Das <code>&lt;legend&gt;</code> ist die <strong>Überschrift</strong> in diesem Rahmen - wie ein Etikett auf einer Schachtel!</p>
+        
+        <p><strong>Ziel:</strong> Gruppiere die Felder "Vorname" und "Nachname" in einem Fieldset</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Fieldset mit Legend "Persönliche Daten"</li>
+            <li>Vorname und Nachname Felder darin (beide required)</li>
+            <li>Korrekte Labels mit for-Attribut</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Fieldset Struktur:</h4>
+            <p>1. &lt;fieldset&gt; (öffnet den Rahmen)<br>
+            2. &nbsp;&nbsp;&lt;legend&gt;Überschrift&lt;/legend&gt; (Titel des Rahmens)<br>
+            3. &nbsp;&nbsp;Hier kommen deine Felder rein<br>
+            4. &lt;/fieldset&gt; (schließt den Rahmen)</p>
+        </div>
+        
+        <div class="example">
+&lt;fieldset&gt;<br>
+&nbsp;&nbsp;&lt;legend&gt;Kontaktdaten&lt;/legend&gt;<br>
+&nbsp;&nbsp;&lt;label for="email"&gt;Email:&lt;/label&gt;<br>
+&nbsp;&nbsp;&lt;input type="email" id="email" name="email"&gt;<br>
+&lt;/fieldset&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 8: Textarea mit Zeichenzähler -->
+    <div class="exercise">
+        <span class="difficulty medium">Mittel</span>
+        <h3>Aufgabe 8: Textarea für Kommentare</h3>
+        <p><strong>Was ist eine Textarea? 🤔</strong></p>
+        <p>Eine <code>&lt;textarea&gt;</code> ist ein <strong>großes, mehrzeiliges Textfeld</strong>. Im Gegensatz zu <code>&lt;input type="text"&gt;</code> (nur eine Zeile) kannst du hier <strong>ganze Absätze</strong> schreiben. Perfekt für Kommentare, Nachrichten oder längere Texte!</p>
+        
+        <p><strong>Ziel:</strong> Erstelle ein großes Textfeld für Kommentare</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Textarea mit maxlength="500"</li>
+            <li>Placeholder-Text: "Ihre Kommentare oder Fragen..."</li>
+            <li>5 Zeilen hoch (rows="5")</li>
+            <li>Label "Kommentare oder Fragen:"</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Textarea Eigenschaften:</h4>
+            <p><code>rows</code> = Höhe in Zeilen (wie hoch das Feld ist)<br>
+            <code>cols</code> = Breite in Zeichen (wie breit das Feld ist)<br>
+            <code>maxlength</code> = Max. Zeichenanzahl<br>
+            <code>placeholder</code> = Platzhaltertext</p>
+        </div>
+        
+        <div class="example">
+&lt;textarea id="nachricht" name="nachricht" rows="3" maxlength="200" placeholder="Schreibe hier..."&gt;&lt;/textarea&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 9: Optgroup für Unternehmensgröße -->
+    <div class="exercise">
+        <span class="difficulty medium">Mittel</span>
+        <h3>Aufgabe 9: Optgroup für strukturierte Auswahl</h3>
+        <p><strong>Was ist eine Optgroup? 🤔</strong></p>
+        <p>Eine <code>&lt;optgroup&gt;</code> ist wie ein <strong>Ordner in einem Dropdown-Menü</strong>. Statt einer langen, unübersichtlichen Liste kannst du deine Optionen in <strong>Kategorien aufteilen</strong>. Zum Beispiel: Alle Größen "S, M, L" unter "Größen", alle Farben unter "Farben".</p>
+        
+        <p><strong>Ziel:</strong> Unternehmensgröße mit Gruppierung</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Select mit optgroup für "Klein", "Mittel", "Groß"</li>
+            <li>Klein: "1-10 Mitarbeiter", "11-50 Mitarbeiter"</li>
+            <li>Mittel: "51-250 Mitarbeiter"</li>
+            <li>Groß: "250+ Mitarbeiter"</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Optgroup macht Select übersichtlicher:</h4>
+            <p>Verwende <code>&lt;optgroup label="Gruppenname"&gt;</code> um Optionen zu kategorisieren. Das <code>label</code> ist die <strong>Überschrift der Gruppe</strong> (nicht anklickbar).</p>
+        </div>
+        
+        <div class="example">
+&lt;select name="tier"&gt;<br>
+&nbsp;&nbsp;&lt;optgroup label="Säugetiere"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="hund"&gt;Hund&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="katze"&gt;Katze&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;/optgroup&gt;<br>
+&nbsp;&nbsp;&lt;optgroup label="Vögel"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="papagei"&gt;Papagei&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;/optgroup&gt;<br>
+&lt;/select&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 10: Komplettes Formular -->
+    <div class="exercise">
+        <span class="difficulty hard">Schwer</span>
+        <h3>Aufgabe 10: Komplettes Mini-Anmeldeformular</h3>
+        <p><strong>Ziel:</strong> Erstelle ein vollständiges Anmeldeformular</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>2 Fieldsets: "Persönliche Daten" und "Auswahl"</li>
+            <li>Persönliche Daten: Anrede, Vorname*, Nachname*, Email*</li>
+            <li>Auswahl: Teilnahme-Art (Radio) und Workshops (Checkboxen)</li>
+            <li>Submit Button "Anmelden" und Reset Button "Zurücksetzen"</li>
+            <li>Form mit action="/register" und method="post"</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Checkliste für komplettes Formular:</h4>
+            <p>✓ &lt;form action="..." method="..."&gt;<br>
+            ✓ Fieldsets mit Legends<br>
+            ✓ Alle Labels mit for-Attribut<br>
+            ✓ Required bei Pflichtfeldern<br>
+            ✓ Name-Attribute bei allen inputs<br>
+            ✓ Submit + Reset Button</p>
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+    <!-- Aufgabe 11: Erweiterte Validierung -->
+    <div class="exercise">
+        <span class="difficulty hard">Schwer</span>
+        <h3>Aufgabe 11: Erweiterte Validierung</h3>
+        <p><strong>Was ist Validierung? 🤔</strong></p>
+        <p><strong>Validierung</strong> bedeutet <strong>"Prüfung"</strong> - der Browser überprüft, ob die Eingabe korrekt ist, BEVOR das Formular abgeschickt wird. Zum Beispiel: Ist die E-Mail wirklich eine E-Mail? Hat die Telefonnummer das richtige Format?</p>
+        
+        <p><strong>Ziel:</strong> Füge erweiterte Validierung hinzu</p>
+        <p><strong>Anforderungen:</strong></p>
+        <ul>
+            <li>Telefon mit pattern für deutsche Nummern</li>
+            <li>Geburtsdatum mit min="1950-01-01" max="2006-01-01"</li>
+            <li>Number input für Teilnehmeranzahl (1-10)</li>
+            <li>URL-Feld für Website mit placeholder</li>
+        </ul>
+        
+        <div class="hint">
+            <h4>💡 Pattern für deutsche Telefonnummern:</h4>
+            <p><code>pattern="[0-9+\-\s\(\)]{8,20}"</code><br>
+            <strong>Erklärung:</strong> Erlaubt Zahlen, +, -, Leerzeichen, Klammern. 8-20 Zeichen lang.</p>
+            <p><strong>Mehr Patterns:</strong> <a href="https://developer.mozilla.org/de/docs/Web/HTML/Attributes/pattern" target="_blank">MDN Pattern Attribute</a></p>
+        </div>
+        
+        <div class="example">
+&lt;input type="tel" pattern="[0-9+\-\s\(\)]{8,20}" placeholder="+49 123 456789"&gt;<br>
+&lt;input type="number" min="1" max="100" step="1"&gt;<br>
+&lt;input type="date" min="2020-01-01" max="2025-12-31"&gt;
+        </div>
+        
+        <!-- DEINE LÖSUNG HIER: -->
+        <form>
+            <!-- Hier dein Code -->
+        </form>
+    </div>
+
+</body>
+</html>
