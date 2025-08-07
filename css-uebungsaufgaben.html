@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Übungsaufgaben - Von Leicht bis Schwer</title>
+    <style>
+        /* Basis-Styling für die Übungsseite - NICHT für die Übungen! */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .exercise {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #fafafa;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .easy { background: #27ae60; color: white; }
+        .medium { background: #f39c12; color: white; }
+        .hard { background: #e74c3c; color: white; }
+
+        .exercise h3 {
+            color: #34495e;
+            margin-top: 10px;
+        }
+
+        .hint {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .hint h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        .example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+
+        .resource-link {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .resource-link a {
+            color: #856404;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .resource-link a:hover {
+            text-decoration: underline;
+        }
+
+        .playground {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .css-input {
+            width: 100%;
+            min-height: 100px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            font-size: 14px;
+        }
+
+        .apply-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .apply-button:hover {
+            background: #217dbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">CSS Übungsaufgaben 🎨</h1>
+        <p style="text-align: center; color: #666;">Lerne CSS Schritt für Schritt - von einfachen Farben bis zu komplexen Layouts!</p>
+
+        <!-- Aufgabe 1: Farbe ändern -->
+        <div class="exercise">
+            <span class="difficulty easy">Leicht</span>
+            <h3>Aufgabe 1: H1-Überschrift rot machen</h3>
+            <p><strong>Ziel:</strong> Ändere die Farbe der H1-Überschrift zu rot</p>
+            <p><strong>Aufgabe:</strong> Schreibe CSS, damit die H1 rot wird</p>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css_colors.asp" target="_blank">CSS Colors</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>CSS Selektoren:</strong> Mit h1 { } wählst du alle H1-Elemente aus<br>
+                <strong>Color Property:</strong> color: red; ändert die Textfarbe</p>
+            </div>
+
+            <div class="example">
+/* Beispiel-Syntax */
+h1 {
+    color: red;
+}
+            </div>
+
+            <div class="playground" id="playground1">
+                <h1>Diese Überschrift soll rot werden!</h1>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;h1 {&#10;    &#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(1)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 2: Schriftgröße -->
+        <div class="exercise">
+            <span class="difficulty easy">Leicht</span>
+            <h3>Aufgabe 2: Klasse .item größer machen</h3>
+            <p><strong>Ziel:</strong> Setze die Schriftgröße der Klasse .item auf 24px</p>
+            <p><strong>Aufgabe:</strong> Alle Elemente mit class="item" sollen größere Schrift haben</p>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css_font_size.asp" target="_blank">CSS font-size</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Klassen-Selektoren:</strong> .klassenname { } wählt alle Elemente mit dieser Klasse<br>
+                <strong>Font-Size:</strong> font-size: 24px; ändert die Schriftgröße</p>
+            </div>
+
+            <div class="playground" id="playground2">
+                <div class="item">Dieser Text soll größer werden!</div>
+                <div class="item">Dieser auch!</div>
+                <p>Dieser normale Text bleibt gleich.</p>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.item {&#10;    &#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(2)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 3: Hintergrundfarbe -->
+        <div class="exercise">
+            <span class="difficulty easy">Leicht</span>
+            <h3>Aufgabe 3: Hintergrundfarbe für .box</h3>
+            <p><strong>Ziel:</strong> Ändere die Hintergrundfarbe der .box zu grün</p>
+            <p><strong>Aufgabe:</strong> Die blaue Box soll grün werden</p>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css_background.asp" target="_blank">CSS background-color</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Background-Color:</strong> background-color: green; ändert die Hintergrundfarbe<br>
+                <strong>Farbnamen:</strong> Du kannst "green", "red", "blue" oder Hex-Codes wie "#00ff00" verwenden</p>
+            </div>
+
+            <div class="playground" id="playground3">
+                <div class="box" style="width: 150px; height: 100px; background: #3498db; color: white; padding: 20px; margin: 10px 0;">Diese Box soll grün werden</div>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.box {&#10;    &#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(3)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 4: Mehrere Properties -->
+        <div class="exercise">
+            <span class="difficulty easy">Leicht</span>
+            <h3>Aufgabe 4: Text stylen mit mehreren Properties</h3>
+            <p><strong>Ziel:</strong> Style den .text-example mit:</p>
+            <ul>
+                <li>Schriftfarbe: blau</li>
+                <li>Schriftgröße: 20px</li>
+                <li>Fettschrift</li>
+            </ul>
+
+            <div class="resource-link">
+                📚 <strong>Ressourcen:</strong>
+                <a href="https://www.w3schools.com/css/css_font_weight.asp" target="_blank">CSS font-weight</a> |
+                <a href="https://www.w3schools.com/css/css_colors.asp" target="_blank">CSS Colors</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Mehrere Properties:</strong> In einem CSS-Block kannst du mehrere Eigenschaften definieren<br>
+                <strong>Font-Weight:</strong> font-weight: bold; macht Text fett</p>
+            </div>
+
+            <div class="playground" id="playground4">
+                <div class="text-example">Dieser Text soll blau, groß und fett werden!</div>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.text-example {&#10;    color: ;&#10;    font-size: ;&#10;    font-weight: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(4)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 5: Margin und Padding -->
+        <div class="exercise">
+            <span class="difficulty medium">Mittel</span>
+            <h3>Aufgabe 5: Abstände mit Margin und Padding</h3>
+            <p><strong>Ziel:</strong> Gib der .spacing-box folgende Abstände:</p>
+            <ul>
+                <li>Innenabstand (padding): 20px</li>
+                <li>Außenabstand (margin): 30px</li>
+            </ul>
+
+            <div class="resource-link">
+                📚 <strong>Ressourcen:</strong>
+                <a href="https://www.w3schools.com/css/css_margin.asp" target="_blank">CSS Margin</a> |
+                <a href="https://www.w3schools.com/css/css_padding.asp" target="_blank">CSS Padding</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Box Model:</strong> Jedes Element hat Content, Padding (innen), Border, Margin (außen)<br>
+                <strong>Padding:</strong> Abstand zwischen Content und Border<br>
+                <strong>Margin:</strong> Abstand zu anderen Elementen</p>
+            </div>
+
+            <div class="playground" id="playground5">
+                <div class="spacing-box" style="background: #e74c3c; color: white; width: 200px;">Box mit Abständen</div>
+                <div class="spacing-box" style="background: #2ecc71; color: white; width: 200px;">Noch eine Box zum Vergleich</div>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.spacing-box {&#10;    margin: ;&#10;    padding: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(5)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 6: Border -->
+        <div class="exercise">
+            <span class="difficulty medium">Mittel</span>
+            <h3>Aufgabe 6: Rahmen hinzufügen</h3>
+            <p><strong>Ziel:</strong> Gib allen .border-item-Elementen einen Rahmen:</p>
+            <ul>
+                <li>3px breit</li>
+                <li>durchgezogen (solid)</li>
+                <li>rote Farbe</li>
+            </ul>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css_border.asp" target="_blank">CSS Border</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Border Syntax:</strong> border: width style color;<br>
+                <strong>Beispiel:</strong> border: 2px solid blue;<br>
+                <strong>Border-Styles:</strong> solid, dashed, dotted, double</p>
+            </div>
+
+            <div class="playground" id="playground6">
+                <div class="border-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0;">Item 1 - bekommt roten Rahmen</div>
+                <div class="border-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0;">Item 2 - bekommt auch roten Rahmen</div>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.border-item {&#10;    border: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(6)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 7: Hover-Effekte -->
+        <div class="exercise">
+            <span class="difficulty medium">Mittel</span>
+            <h3>Aufgabe 7: Hover-Effekt für Buttons</h3>
+            <p><strong>Ziel:</strong> Wenn man über .hover-button hovert, soll sich die Hintergrundfarbe zu dunkelblau (#1e3a8a) ändern</p>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank">CSS :hover</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Pseudo-Klassen:</strong> :hover aktiviert sich beim Drüberfahren mit der Maus<br>
+                <strong>Syntax:</strong> .klassenname:hover { }<br>
+                <strong>Interaktivität:</strong> Macht Webseiten lebendiger!</p>
+            </div>
+
+            <div class="playground" id="playground7">
+                <button class="hover-button" style="padding: 10px 20px; background: #3498db; color: white; border: none; cursor: pointer; margin: 5px;">Hover über mich!</button>
+                <button class="hover-button" style="padding: 10px 20px; background: #3498db; color: white; border: none; cursor: pointer; margin: 5px;">Mich auch!</button>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.hover-button:hover {&#10;    background-color: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(7)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 8: Text-Alignment -->
+        <div class="exercise">
+            <span class="difficulty medium">Mittel</span>
+            <h3>Aufgabe 8: Text zentrieren und ausrichten</h3>
+            <p><strong>Ziel:</strong> Verschiedene Textausrichtungen:</p>
+            <ul>
+                <li>.center-heading: zentriert</li>
+                <li>.justify-text: Blocksatz (justify)</li>
+            </ul>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css_text_align.asp" target="_blank">CSS text-align</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Text-Align Werte:</strong> left, right, center, justify<br>
+                <strong>Center:</strong> Text mittig ausrichten<br>
+                <strong>Justify:</strong> Text auf beiden Seiten bündig (Blocksatz)</p>
+            </div>
+
+            <div class="playground" id="playground8">
+                <h2 class="center-heading">Diese Überschrift soll zentriert werden</h2>
+                <p class="justify-text">Dieser Absatz soll im Blocksatz dargestellt werden. Das bedeutet, dass der Text sowohl links als auch rechts bündig ist. Das sieht besonders bei längeren Texten professionell aus.</p>
+                <p class="justify-text">Auch dieser Absatz soll im Blocksatz erscheinen. Du siehst den Unterschied besonders gut, wenn der Text über mehrere Zeilen geht.</p>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.center-heading {&#10;    text-align: ;&#10;}&#10;&#10;.justify-text {&#10;    text-align: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(8)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 9: Box-Shadow -->
+        <div class="exercise">
+            <span class="difficulty hard">Schwer</span>
+            <h3>Aufgabe 9: Schatten-Effekte</h3>
+            <p><strong>Ziel:</strong> Gib der .shadow-box einen Schatten-Effekt:</p>
+            <ul>
+                <li>Horizontal: 5px</li>
+                <li>Vertikal: 5px</li>
+                <li>Unschärfe: 10px</li>
+                <li>Farbe: grau (#888)</li>
+            </ul>
+
+            <div class="resource-link">
+                📚 <strong>Ressource:</strong>
+                <a href="https://www.w3schools.com/css/css3_shadows.asp" target="_blank">CSS box-shadow</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Box-Shadow Syntax:</strong> box-shadow: h-offset v-offset blur color;<br>
+                <strong>Offset:</strong> Positive Werte = nach rechts/unten<br>
+                <strong>Blur:</strong> Je größer, desto unschärfer der Schatten</p>
+            </div>
+
+            <div class="playground" id="playground9">
+                <div class="shadow-box" style="width: 200px; height: 100px; background: #3498db; color: white; padding: 20px; margin: 20px 0;">Box mit Schatten</div>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.shadow-box {&#10;    box-shadow: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(9)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 10: Komplexe Selektoren -->
+        <div class="exercise">
+            <span class="difficulty hard">Schwer</span>
+            <h3>Aufgabe 10: Erweiterte Selektoren</h3>
+            <p><strong>Ziel:</strong> Verwende verschiedene Selektoren:</p>
+            <ul>
+                <li>Alle P-Elemente INNERHALB von .special: grüne Schrift</li>
+                <li>Das erste .list-item Element: gelber Hintergrund</li>
+                <li>Alle .list-item Elemente beim Hover: größere Schrift (18px)</li>
+            </ul>
+
+            <div class="resource-link">
+                📚 <strong>Ressourcen:</strong>
+                <a href="https://www.w3schools.com/css/css_selectors.asp" target="_blank">CSS Selektoren</a> |
+                <a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank">CSS :first-child</a>
+            </div>
+
+            <div class="hint">
+                <h4>💡 Konzept:</h4>
+                <p><strong>Nachfahren-Selektor:</strong> .parent p { } wählt P-Elemente in .parent<br>
+                <strong>First-Child:</strong> .item:first-child wählt das erste .item<br>
+                <strong>Kombinationen:</strong> Du kannst Selektoren kombinieren!</p>
+            </div>
+
+            <div class="playground" id="playground10">
+                <div class="special">
+                    <p>Dieser Text soll grün werden (ist in .special)</p>
+                    <p>Dieser auch!</p>
+                </div>
+                <p>Dieser Text bleibt normal (nicht in .special)</p>
+                
+                <div class="list-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; border: 1px solid #ddd;">Erstes Item - soll gelb werden</div>
+                <div class="list-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; border: 1px solid #ddd;">Zweites Item - hover für größere Schrift</div>
+                <div class="list-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; border: 1px solid #ddd;">Drittes Item - hover auch</div>
+                
+                <textarea class="css-input" placeholder="/* DEIN CSS HIER: */&#10;.special p {&#10;    color: ;&#10;}&#10;&#10;.list-item:first-child {&#10;    background-color: ;&#10;}&#10;&#10;.list-item:hover {&#10;    font-size: ;&#10;}"></textarea>
+                <button class="apply-button" onclick="applyCss(10)">CSS anwenden</button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 20px; background: #e8f4fd; border-radius: 8px;">
+            <h3>🎯 CSS Meisterschaft erreicht!</h3>
+            <p>Du hast die wichtigsten CSS-Konzepte gelernt: Selektoren, Properties, Box-Model, Pseudo-Klassen und mehr!</p>
+            <p><strong>Tipp:</strong> Öffne die Browser-Entwicklertools (F12) und experimentiere live mit CSS!</p>
+            <p><strong>Nächste Schritte:</strong> Flexbox, Grid-Layout, Animationen und responsive Design!</p>
+        </div>
+    </div>
+
+    <script>
+        function applyCss(exerciseNumber) {
+            const playground = document.getElementById(`playground${exerciseNumber}`);
+            const cssInput = playground.querySelector('.css-input');
+            const cssCode = cssInput.value;
+            
+            // Entferne vorherige Style-Tags für diese Übung
+            const existingStyle = document.getElementById(`style${exerciseNumber}`);
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            
+            // Erstelle neuen Style-Tag
+            const styleElement = document.createElement('style');
+            styleElement.id = `style${exerciseNumber}`;
+            styleElement.textContent = cssCode;
+            document.head.appendChild(styleElement);
+            
+            // Kurzes visuelles Feedback
+            const button = playground.querySelector('.apply-button');
+            const originalText = button.textContent;
+            button.textContent = '✅ Angewendet!';
+            button.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#3498db';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
