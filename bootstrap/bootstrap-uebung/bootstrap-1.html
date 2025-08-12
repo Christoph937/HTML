@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5.3 - Erste Schritte Tutorial</title>
+    
+    <!-- Bootstrap CSS einbinden -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Eigenes CSS für das Tutorial -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .tutorial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tutorial-header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #0d6efd;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .concept-box {
+            background: #e7f3ff;
+            border: 2px solid #0d6efd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .code-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-tag {
+            color: #569cd6;
+        }
+
+        .code-attribute {
+            color: #9cdcfe;
+        }
+
+        .code-value {
+            color: #ce9178;
+        }
+
+        .try-it-box {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .demo-container {
+            border: 3px dashed #6b7280;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f9fafb;
+        }
+
+        .highlight-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .visual-example {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .column-demo {
+            background: #3b82f6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .column-demo-2 {
+            background: #10b981;
+        }
+
+        .column-demo-3 {
+            background: #f59e0b;
+        }
+
+        .mini-task {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .btn-check-answer {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-check-answer:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+
+        .arrow-indicator {
+            font-size: 2em;
+            color: #0d6efd;
+            text-align: center;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .doc-reference {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .doc-reference a {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-container">
+        <!-- Header -->
+        <div class="tutorial-header">
+            <h1 class="display-4 text-center mb-4">🚀 Bootstrap 5.3 - Deine ersten Schritte</h1>
+            <p class="lead text-center text-muted">
+                Lerne Schritt für Schritt, wie Bootstrap funktioniert - perfekt für absolute Anfänger!
+            </p>
+        </div>
+
+        <!-- Einführung -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">📚</span>
+                Was werden wir heute lernen?
+            </h2>
+            <p class="fs-5">
+                In dieser Lektion lernst du die <strong>absoluten Grundlagen</strong> von Bootstrap:
+            </p>
+            <ul class="fs-5">
+                <li>✅ Was Bootstrap ist und warum es so nützlich ist</li>
+                <li>✅ Wie du Bootstrap in deine HTML-Seite einbindest</li>
+                <li>✅ Das wichtigste Konzept: <strong>Container</strong></li>
+                <li>✅ Wie das <strong>Grid-System</strong> funktioniert</li>
+                <li>✅ Wie du die Bootstrap-Dokumentation richtig nutzt</li>
+            </ul>
+        </div>
+
+        <!-- Schritt 1: Was ist Bootstrap? -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">1</span>
+                Was ist Bootstrap überhaupt?
+            </h2>
+            
+            <div class="concept-box">
+                <h4>💡 Stell dir vor...</h4>
+                <p class="mb-0">
+                    Du willst ein Haus bauen. Du könntest jeden einzelnen Ziegel selbst herstellen (= alles CSS selbst schreiben).
+                    ODER du nimmst fertige Bausteine, die schon perfekt vorbereitet sind (= Bootstrap).
+                    <br><br>
+                    <strong>Bootstrap ist wie ein Baukasten mit fertigen Website-Bausteinen!</strong>
+                </p>
+            </div>
+
+            <p class="fs-5 mt-4">
+                Bootstrap gibt dir:
+            </p>
+            <ul>
+                <li><strong>Fertige Styles:</strong> Schöne Buttons, Karten, Formulare - alles schon gestylt!</li>
+                <li><strong>Responsive Design:</strong> Deine Seite sieht auf Handy, Tablet und PC gut aus!</li>
+                <li><strong>Grid-System:</strong> Ordne Inhalte in Spalten an - super einfach!</li>
+            </ul>
+        </div>
+
+        <!-- Schritt 2: Bootstrap einbinden -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">2</span>
+                Bootstrap in deine HTML-Seite einbinden
+            </h2>
+            
+            <p class="fs-5">
+                Bootstrap besteht aus zwei Teilen, die du beide brauchst:
+            </p>
+
+            <div class="highlight-box">
+                <h5>⚠️ Wichtig zu verstehen:</h5>
+                <ul class="mb-0">
+                    <li><strong>CSS-Datei:</strong> Macht alles schön (Farben, Abstände, Aussehen)</li>
+                    <li><strong>JavaScript-Datei:</strong> Macht Dinge interaktiv (Dropdown-Menüs, Modals)</li>
+                </ul>
+            </div>
+
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- Schritt 1: Bootstrap CSS im &lt;head&gt; einbinden --&gt;</span><br>
+                <span class="code-tag">&lt;link</span> 
+                <span class="code-attribute">href=</span><span class="code-value">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"</span> 
+                <span class="code-attribute">rel=</span><span class="code-value">"stylesheet"</span><span class="code-tag">&gt;</span><br><br>
+
+                <span class="code-comment">&lt;!-- Schritt 2: Bootstrap JavaScript vor &lt;/body&gt; einbinden --&gt;</span><br>
+                <span class="code-tag">&lt;script</span> 
+                <span class="code-attribute">src=</span><span class="code-value">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"</span><span class="code-tag">&gt;&lt;/script&gt;</span>
+            </div>
+
+            <div class="try-it-box">
+                <h5>🎯 Teste es selbst:</h5>
+                <p>Wenn Bootstrap richtig eingebunden ist, funktioniert dieser Button:</p>
+                <button class="btn btn-primary">Ich bin ein Bootstrap Button!</button>
+                <button class="btn btn-success ms-2">Ich auch!</button>
+                <p class="mt-3 mb-0">
+                    <strong>Siehst du die schönen Farben?</strong> Das ist Bootstrap! 
+                    Ohne Bootstrap wären das nur langweilige graue Buttons.
+                </p>
+            </div>
+        </div>
+
+        <!-- Schritt 3: Der Container -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">3</span>
+                Das wichtigste Konzept: Der Container
+            </h2>
+
+            <div class="concept-box">
+                <h4>💡 Was ist ein Container?</h4>
+                <p class="mb-0">
+                    Ein Container ist wie ein <strong>unsichtbarer Rahmen</strong> um deinen Inhalt.
+                    Er sorgt dafür, dass dein Inhalt nicht bis zum Rand des Bildschirms geht und schön zentriert ist.
+                </p>
+            </div>
+
+            <p class="fs-5 mt-4">Es gibt zwei Arten von Containern:</p>
+
+            <div class="visual-example">
+                <h5>1. Normal Container (.container)</h5>
+                <div class="container" style="background: #e0e7ff; padding: 20px; border-radius: 8px;">
+                    <p class="mb-0 text-center">
+                        Ich bin in einem normalen Container.<br>
+                        Ich habe automatisch Abstände zum Rand!
+                    </p>
+                </div>
+            </div>
+
+            <div class="visual-example">
+                <h5>2. Fluid Container (.container-fluid)</h5>
+                <div class="container-fluid" style="background: #fce7f3; padding: 20px; border-radius: 8px;">
+                    <p class="mb-0 text-center">
+                        Ich bin in einem Fluid Container.<br>
+                        Ich gehe bis zum Rand!
+                    </p>
+                </div>
+            </div>
+
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- Normaler Container mit Abständen --&gt;</span><br>
+                <span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;Dein Inhalt hier<br>
+                <span class="code-tag">&lt;/div&gt;</span><br><br>
+
+                <span class="code-comment">&lt;!-- Fluid Container ohne Abstände --&gt;</span><br>
+                <span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container-fluid"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;Dein Inhalt hier<br>
+                <span class="code-tag">&lt;/div&gt;</span>
+            </div>
+
+            <div class="doc-reference">
+                📖 <strong>Dokumentation:</strong><br>
+                Mehr über Container findest du hier: 
+                <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank">
+                    Bootstrap Container Dokumentation
+                </a><br>
+                <small>Tipp: Die Dokumentation hat immer Beispiele, die du kopieren kannst!</small>
+            </div>
+        </div>
+
+        <!-- Schritt 4: Das Grid-System -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">4</span>
+                Das magische Grid-System
+            </h2>
+
+            <div class="concept-box">
+                <h4>💡 Die 12-Spalten-Regel</h4>
+                <p>
+                    Stell dir vor, dein Container ist in <strong>12 unsichtbare Spalten</strong> aufgeteilt.
+                    Du kannst deine Inhalte auf diese Spalten verteilen!
+                </p>
+                <div class="demo-container">
+                    <div class="row text-center">
+                        <div class="col-1 border">1</div>
+                        <div class="col-1 border">2</div>
+                        <div class="col-1 border">3</div>
+                        <div class="col-1 border">4</div>
+                        <div class="col-1 border">5</div>
+                        <div class="col-1 border">6</div>
+                        <div class="col-1 border">7</div>
+                        <div class="col-1 border">8</div>
+                        <div class="col-1 border">9</div>
+                        <div class="col-1 border">10</div>
+                        <div class="col-1 border">11</div>
+                        <div class="col-1 border">12</div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mt-4">Die drei Bausteine des Grid-Systems:</h4>
+
+            <div class="highlight-box">
+                <ol class="mb-0">
+                    <li><strong>Container</strong> - Der äußere Rahmen</li>
+                    <li><strong>Row</strong> - Eine Zeile für deine Spalten</li>
+                    <li><strong>Col</strong> - Die eigentlichen Spalten</li>
+                </ol>
+            </div>
+
+            <div class="arrow-indicator">⬇️</div>
+
+            <h4>Beispiel 1: Zwei gleich große Spalten</h4>
+            <div class="code-box">
+                <span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"row"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"col-6"</span><span class="code-tag">&gt;</span>Linke Hälfte<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"col-6"</span><span class="code-tag">&gt;</span>Rechte Hälfte<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                <span class="code-tag">&lt;/div&gt;</span>
+            </div>
+
+            <div class="visual-example">
+                <h5>So sieht's aus:</h5>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="column-demo">Linke Hälfte (6 von 12 Spalten)</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="column-demo column-demo-2">Rechte Hälfte (6 von 12 Spalten)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mt-4">Beispiel 2: Drei gleich große Spalten</h4>
+            <div class="code-box">
+                <span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"row"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"col-4"</span><span class="code-tag">&gt;</span>Spalte 1<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"col-4"</span><span class="code-tag">&gt;</span>Spalte 2<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"col-4"</span><span class="code-tag">&gt;</span>Spalte 3<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                <span class="code-tag">&lt;/div&gt;</span>
+            </div>
+
+            <div class="visual-example">
+                <h5>So sieht's aus:</h5>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="column-demo">Spalte 1 (4 von 12)</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="column-demo column-demo-2">Spalte 2 (4 von 12)</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="column-demo column-demo-3">Spalte 3 (4 von 12)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h5>📐 Die Mathe dahinter:</h5>
+                <p class="mb-0">
+                    <strong>12 Spalten insgesamt</strong><br>
+                    • 2 Spalten: 12 ÷ 2 = 6 → class="col-6"<br>
+                    • 3 Spalten: 12 ÷ 3 = 4 → class="col-4"<br>
+                    • 4 Spalten: 12 ÷ 4 = 3 → class="col-3"<br>
+                    • 6 Spalten: 12 ÷ 6 = 2 → class="col-2"
+                </p>
+            </div>
+        </div>
+
+        <!-- Praktische Übungsaufgabe -->
+        <div class="step-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2>
+                <span class="step-number" style="background: white; color: #667eea;">✏️</span>
+                <span style="color: white;">Deine Übungsaufgabe</span>
+            </h2>
+            
+            <div style="background: white; color: #333; padding: 25px; border-radius: 10px; margin-top: 20px;">
+                <h3 style="color: #667eea;">🎯 Aufgabe: Erstelle eine kleine Produktseite</h3>
+                
+                <p class="fs-5">
+                    <strong>Dein Ziel:</strong> Baue eine einfache Seite mit Bootstrap, die folgende Elemente hat:
+                </p>
+                
+                <ol class="fs-5">
+                    <li>Einen <strong>Container</strong> als Rahmen</li>
+                    <li>Eine <strong>Überschrift</strong> "Unsere Produkte"</li>
+                    <li>Eine <strong>Row mit 3 Produkten</strong> (3 gleich große Spalten)</li>
+                    <li>In jeder Spalte: Produktname und einen Button</li>
+                </ol>
+
+                <div class="highlight-box" style="background: #fef3c7; border-color: #f59e0b;">
+                    <h5>📝 Startcode für dich:</h5>
+                    <div class="code-box" style="background: #1e1e1e;">
+                        <span class="code-comment">&lt;!DOCTYPE html&gt;</span><br>
+                        <span class="code-tag">&lt;html</span> <span class="code-attribute">lang=</span><span class="code-value">"de"</span><span class="code-tag">&gt;</span><br>
+                        <span class="code-tag">&lt;head&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Bootstrap CSS hier einbinden --&gt;</span><br>
+                        &nbsp;&nbsp;<br>
+                        <span class="code-tag">&lt;/head&gt;</span><br>
+                        <span class="code-tag">&lt;body&gt;</span><br><br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Hier kommt dein Code --&gt;</span><br>
+                        &nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Bootstrap JS hier einbinden --&gt;</span><br>
+                        &nbsp;&nbsp;<br>
+                        <span class="code-tag">&lt;/body&gt;</span><br>
+                        <span class="code-tag">&lt;/html&gt;</span>
+                    </div>
+                </div>
+
+                <div class="mini-task" style="background: #e0f2fe; border-color: #0284c7;">
+                    <h5>📋 Schritt-für-Schritt Anleitung:</h5>
+                    <ol>
+                        <li>
+                            <strong>Bootstrap einbinden</strong><br>
+                            <small>Kopiere die Links von Schritt 2 in deinen Code</small>
+                        </li>
+                        <li>
+                            <strong>Container erstellen</strong><br>
+                            <small>Füge &lt;div class="container"&gt; im body ein</small>
+                        </li>
+                        <li>
+                            <strong>Überschrift hinzufügen</strong><br>
+                            <small>&lt;h1&gt;Unsere Produkte&lt;/h1&gt;</small>
+                        </li>
+                        <li>
+                            <strong>Row erstellen</strong><br>
+                            <small>&lt;div class="row"&gt;</small>
+                        </li>
+                        <li>
+                            <strong>3 Spalten einfügen</strong><br>
+                            <small>3x &lt;div class="col-4"&gt; (Denk an die 12er-Regel!)</small>
+                        </li>
+                        <li>
+                            <strong>Inhalt in jede Spalte</strong><br>
+                            <small>Produktname als &lt;h3&gt; und &lt;button class="btn btn-primary"&gt;</small>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="try-it-box" style="background: #d1fae5; border-color: #10b981;">
+                    <h5>✅ So sollte dein Ergebnis aussehen:</h5>
+                    
+                    <div class="visual-example" style="border: 3px solid #10b981; padding: 20px; text-align: center;">
+                        <img src="beispiel-1.png" alt="Screenshot der fertigen Produktseite" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    </div>
+                </div>
+
+                <div class="success-message" id="successMsg" style="display: block; margin-top: 30px;">
+                    <h4>🎉 Herzlichen Glückwunsch!</h4>
+                    <p class="mb-0">
+                        Du hast die Grundlagen von Bootstrap gelernt! Du kannst jetzt:
+                    </p>
+                    <ul class="mb-0 mt-2">
+                        <li>✅ Bootstrap in deine Seite einbinden</li>
+                        <li>✅ Mit Containern arbeiten</li>
+                        <li>✅ Das Grid-System nutzen</li>
+                        <li>✅ Einfache Layouts erstellen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
