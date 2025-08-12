@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5.3 - Navigation erstellen Tutorial</title>
+    
+    <!-- Bootstrap CSS einbinden -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Eigenes CSS für das Tutorial -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .tutorial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tutorial-header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #0d6efd;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .concept-box {
+            background: #e7f3ff;
+            border: 2px solid #0d6efd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .code-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-tag {
+            color: #569cd6;
+        }
+
+        .code-attribute {
+            color: #9cdcfe;
+        }
+
+        .code-value {
+            color: #ce9178;
+        }
+
+        .try-it-box {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .demo-container {
+            border: 3px dashed #6b7280;
+            border-radius: 10px;
+            padding: 0;
+            margin: 20px 0;
+            background: #f9fafb;
+            overflow: hidden;
+        }
+
+        .highlight-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .visual-example {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 0;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .mini-task {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .arrow-indicator {
+            font-size: 2em;
+            color: #0d6efd;
+            text-align: center;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .doc-reference {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .doc-reference a {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .warning-box {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .anatomy-box {
+            background: #f3f4f6;
+            border: 2px solid #9ca3af;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .anatomy-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .anatomy-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #6b7280;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 0.9em;
+        }
+
+        .component-breakdown {
+            background: #faf5ff;
+            border: 2px solid #a855f7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-container">
+        <!-- Header -->
+        <div class="tutorial-header">
+            <h1 class="display-4 text-center mb-4">🧭 Bootstrap Navigation (Navbar)</h1>
+            <p class="lead text-center text-muted">
+                Lerne Schritt für Schritt, wie du eine professionelle Navigation erstellst!
+            </p>
+        </div>
+
+        <!-- Einführung -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">📚</span>
+                Was werden wir heute lernen?
+            </h2>
+            <p class="fs-5">
+                In dieser Lektion baust du deine <strong>erste Navigation</strong> mit Bootstrap:
+            </p>
+            <ul class="fs-5">
+                <li>✅ Was eine Navbar ist und warum sie wichtig ist</li>
+                <li>✅ Die Anatomie einer Bootstrap Navbar verstehen</li>
+                <li>✅ Eine einfache Navigation erstellen</li>
+                <li>✅ Logo und Links hinzufügen</li>
+                <li>✅ Die Navigation responsive machen (Hamburger-Menü)</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h5>⚠️ Voraussetzungen:</h5>
+                <p class="mb-0">Du solltest bereits wissen, wie man Bootstrap einbindet und Container verwendet. 
+                Falls nicht, mache zuerst die vorherige Übung!</p>
+            </div>
+        </div>
+
+        <!-- Schritt 1: Was ist eine Navbar? -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">1</span>
+                Was ist eine Navbar?
+            </h2>
+            
+            <div class="concept-box">
+                <h4>💡 Stell dir vor...</h4>
+                <p class="mb-0">
+                    Eine Navbar ist wie das <strong>Inhaltsverzeichnis</strong> deiner Website - aber immer sichtbar!
+                    <br><br>
+                    Sie zeigt dem Benutzer:
+                    • Wo er sich auf der Website befindet<br>
+                    • Wohin er navigieren kann<br>
+                    • Worum es auf der Website geht (Logo/Name)
+                </p>
+            </div>
+
+            <p class="fs-5 mt-4">
+                <strong>Jede professionelle Website hat eine Navbar!</strong> Schau mal:
+            </p>
+
+            <div class="visual-example">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Amazon</a>
+                        <div class="navbar-nav d-flex flex-row gap-3">
+                            <a class="nav-link" href="#">Bestseller</a>
+                            <a class="nav-link" href="#">Angebote</a>
+                            <a class="nav-link" href="#">Kundenservice</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="visual-example">
+                <nav class="navbar navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Netflix</a>
+                        <div class="navbar-nav d-flex flex-row gap-3">
+                            <a class="nav-link text-white" href="#">Startseite</a>
+                            <a class="nav-link text-white" href="#">Serien</a>
+                            <a class="nav-link text-white" href="#">Filme</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <p class="fs-5 mt-3">
+                Siehst du? Immer das gleiche Prinzip: <strong>Logo links, Links rechts!</strong>
+            </p>
+        </div>
+
+        <!-- Schritt 2: Anatomie einer Navbar -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">2</span>
+                Die Bausteine einer Bootstrap Navbar
+            </h2>
+
+            <div class="component-breakdown">
+                <h4>🔧 Die 4 Hauptbestandteile:</h4>
+                
+                <div class="anatomy-item">
+                    <span class="anatomy-number">1</span>
+                    <div>
+                        <strong>nav-Element mit .navbar</strong><br>
+                        <small>Der äußere Container für alles</small>
+                    </div>
+                </div>
+                
+                <div class="anatomy-item">
+                    <span class="anatomy-number">2</span>
+                    <div>
+                        <strong>.container</strong><br>
+                        <small>Für schöne Abstände zum Rand</small>
+                    </div>
+                </div>
+                
+                <div class="anatomy-item">
+                    <span class="anatomy-number">3</span>
+                    <div>
+                        <strong>.navbar-brand</strong><br>
+                        <small>Für dein Logo oder Website-Namen</small>
+                    </div>
+                </div>
+                
+                <div class="anatomy-item">
+                    <span class="anatomy-number">4</span>
+                    <div>
+                        <strong>.navbar-nav mit .nav-link</strong><br>
+                        <small>Für die Navigations-Links</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- Die Grundstruktur jeder Navbar --&gt;</span><br>
+                <span class="code-tag">&lt;nav</span> <span class="code-attribute">class=</span><span class="code-value">"navbar"</span><span class="code-tag">&gt;</span> <span class="code-comment">&lt;!-- 1. Hauptcontainer --&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span> <span class="code-comment">&lt;!-- 2. Abstände --&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-brand"</span><span class="code-tag">&gt;</span>Logo<span class="code-tag">&lt;/a&gt;</span> <span class="code-comment">&lt;!-- 3. Logo --&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-nav"</span><span class="code-tag">&gt;</span> <span class="code-comment">&lt;!-- 4. Link-Container --&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"nav-link"</span><span class="code-tag">&gt;</span>Link<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                <span class="code-tag">&lt;/nav&gt;</span>
+            </div>
+        </div>
+
+        <!-- Schritt 3: Erste einfache Navbar -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">3</span>
+                Deine erste einfache Navbar
+            </h2>
+
+            <p class="fs-5">
+                Lass uns mit einer <strong>ganz einfachen Navbar</strong> starten:
+            </p>
+
+            <div class="code-box">
+                <span class="code-tag">&lt;nav</span> <span class="code-attribute">class=</span><span class="code-value">"navbar navbar-light bg-light"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-brand"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Meine Website<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                <span class="code-tag">&lt;/nav&gt;</span>
+            </div>
+
+            <div class="highlight-box">
+                <h5>📝 Klassen erklärt:</h5>
+                <ul class="mb-0">
+                    <li><strong>.navbar</strong> - Macht es zu einer Navigation</li>
+                    <li><strong>.navbar-light</strong> - Dunkle Schrift für helle Hintergründe</li>
+                    <li><strong>.bg-light</strong> - Hellgrauer Hintergrund</li>
+                    <li><strong>.navbar-brand</strong> - Stylt das Logo/den Namen</li>
+                </ul>
+            </div>
+
+            <div class="try-it-box">
+                <h5>🎯 So sieht's aus:</h5>
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Meine Website</a>
+                    </div>
+                </nav>
+                <p class="mt-3 mb-0">
+                    Noch sehr einfach, aber es ist eine funktionierende Navbar!
+                </p>
+            </div>
+        </div>
+
+        <!-- Schritt 4: Links hinzufügen -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">4</span>
+                Navigations-Links hinzufügen
+            </h2>
+
+            <p class="fs-5">
+                Eine Navbar ohne Links ist wie ein Auto ohne Räder. <strong>Fügen wir Links hinzu!</strong>
+            </p>
+
+            <div class="code-box">
+                <span class="code-tag">&lt;nav</span> <span class="code-attribute">class=</span><span class="code-value">"navbar navbar-light bg-light"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-brand"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Meine Website<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">&lt;!-- NEU: Navigation Links --&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-nav"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"nav-link"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Home<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"nav-link"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Über uns<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"nav-link"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Kontakt<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                <span class="code-tag">&lt;/nav&gt;</span>
+            </div>
+
+            <div class="warning-box">
+                <h5>⚠️ Problem:</h5>
+                <p class="mb-0">Die Links stehen jetzt <strong>untereinander</strong> statt nebeneinander! 
+                Das müssen wir noch fixen...</p>
+            </div>
+
+            <div class="try-it-box">
+                <h5>🔧 Gelöst mit Flexbox:</h5>
+                <p>Füge diese Klassen zur navbar-nav hinzu: <code>d-flex flex-row</code></p>
+                
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Meine Website</a>
+                        <div class="navbar-nav d-flex flex-row gap-3">
+                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="#">Über uns</a>
+                            <a class="nav-link" href="#">Kontakt</a>
+                        </div>
+                    </div>
+                </nav>
+                
+                <p class="mt-3 mb-0">
+                    <strong>Viel besser!</strong> Die Links sind jetzt nebeneinander mit der Klasse <code>d-flex flex-row gap-3</code>
+                </p>
+            </div>
+        </div>
+
+        <!-- Schritt 5: Farben und Styles -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">5</span>
+                Farben und Styles anpassen
+            </h2>
+
+            <p class="fs-5">
+                Bootstrap bietet dir <strong>verschiedene Farbschemas</strong> für deine Navbar:
+            </p>
+
+            <div class="visual-example">
+                <h5 class="p-3">Hell (navbar-light bg-light)</h5>
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Light Navbar</a>
+                        <div class="navbar-nav d-flex flex-row gap-3">
+                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="#">About</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="visual-example">
+                <h5 class="p-3">Dunkel (navbar-dark bg-dark)</h5>
+                <nav class="navbar navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Dark Navbar</a>
+                        <div class="navbar-nav d-flex flex-row gap-3">
+                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="#">About</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="visual-example">
+                <h5 class="p-3">Blau (navbar-dark bg-primary)</h5>
+                <nav class="navbar navbar-dark bg-primary">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Primary Navbar</a>
+                        <div class="navbar-nav d-flex flex-row gap-3">
+                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="#">About</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="highlight-box">
+                <h5>💡 Regel für Farben:</h5>
+                <p class="mb-0">
+                    • <strong>Heller Hintergrund?</strong> → Verwende <code>navbar-light</code><br>
+                    • <strong>Dunkler Hintergrund?</strong> → Verwende <code>navbar-dark</code><br>
+                    • <strong>Hintergrundfarbe:</strong> → <code>bg-light</code>, <code>bg-dark</code>, <code>bg-primary</code>, etc.
+                </p>
+            </div>
+        </div>
+
+        <!-- Schritt 6: Responsive Navbar -->
+        <div class="step-card">
+            <h2>
+                <span class="step-number">6</span>
+                Responsive machen (Hamburger-Menü)
+            </h2>
+
+            <p class="fs-5">
+                Auf Handys wird aus deiner Navbar automatisch ein <strong>Hamburger-Menü</strong>! 
+                Dafür brauchst du nur ein paar zusätzliche Klassen:
+            </p>
+
+            <div class="code-box">
+                <span class="code-tag">&lt;nav</span> <span class="code-attribute">class=</span><span class="code-value">"navbar navbar-expand-lg navbar-light bg-light"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-brand"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Logo<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">&lt;!-- Hamburger Button (wird nur auf Handy sichtbar) --&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;button</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-toggler"</span> <span class="code-attribute">type=</span><span class="code-value">"button"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-attribute">data-bs-toggle=</span><span class="code-value">"collapse"</span> <span class="code-attribute">data-bs-target=</span><span class="code-value">"#navbarNav"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;span</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-toggler-icon"</span><span class="code-tag">&gt;&lt;/span&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;/button&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">&lt;!-- Links (können eingeklappt werden) --&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"collapse navbar-collapse"</span> <span class="code-attribute">id=</span><span class="code-value">"navbarNav"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"navbar-nav"</span><span class="code-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"nav-link"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Home<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;a</span> <span class="code-attribute">class=</span><span class="code-value">"nav-link"</span> <span class="code-attribute">href=</span><span class="code-value">"#"</span><span class="code-tag">&gt;</span>Über uns<span class="code-tag">&lt;/a&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br>
+                <span class="code-tag">&lt;/nav&gt;</span>
+            </div>
+
+            <div class="highlight-box">
+                <h5>🔑 Wichtige neue Elemente:</h5>
+                <ul class="mb-0">
+                    <li><strong>navbar-expand-lg</strong> - Ab welcher Größe die Navbar ausgeklappt wird</li>
+                    <li><strong>navbar-toggler</strong> - Der Hamburger-Button</li>
+                    <li><strong>collapse navbar-collapse</strong> - Macht die Links einklappbar</li>
+                    <li><strong>data-bs-target="#navbarNav"</strong> - Muss zur ID passen!</li>
+                </ul>
+            </div>
+
+            <div class="try-it-box">
+                <h5>🎯 Teste es selbst:</h5>
+                <p>Verkleinere dein Browser-Fenster und sieh was passiert!</p>
+                
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Responsive Nav</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#demoNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="demoNav">
+                            <div class="navbar-nav ms-auto">
+                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="#">Produkte</a>
+                                <a class="nav-link" href="#">Über uns</a>
+                                <a class="nav-link" href="#">Kontakt</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="doc-reference">
+                📖 <strong>Dokumentation:</strong><br>
+                Mehr über responsive Navbars findest du hier: 
+                <a href="https://getbootstrap.com/docs/5.3/components/navbar/#responsive-behaviors" target="_blank">
+                    Bootstrap Navbar Responsive
+                </a><br>
+                <small>Tipp: Die Dokumentation zeigt dir alle möglichen Breakpoints!</small>
+            </div>
+        </div>
+
+        <!-- Praktische Übungsaufgabe -->
+        <div class="step-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2>
+                <span class="step-number" style="background: white; color: #667eea;">✏️</span>
+                <span style="color: white;">Deine Übungsaufgabe</span>
+            </h2>
+            
+            <div style="background: white; color: #333; padding: 25px; border-radius: 10px; margin-top: 20px;">
+                <h3 style="color: #667eea;">🎯 Aufgabe: Erstelle eine komplette Navigation</h3>
+                
+                <p class="fs-5">
+                    <strong>Dein Ziel:</strong> Baue eine professionelle Navbar für einen Online-Shop mit:
+                </p>
+                
+                <ol class="fs-5">
+                    <li>Einem <strong>Logo/Shop-Namen</strong> links (z.B. "🛍️ SuperShop")</li>
+                    <li><strong>4 Navigations-Links</strong> (Home, Produkte, Angebote, Kontakt)</li>
+                    <li>Einem <strong>dunklen Design</strong> (navbar-dark bg-dark oder bg-primary)</li>
+                    <li><strong>Responsive Verhalten</strong> (Hamburger-Menü auf Handys)</li>
+                    <li>Links sollen <strong>rechts</strong> ausgerichtet sein (ms-auto)</li>
+                </ol>
+
+                <div class="highlight-box" style="background: #fef3c7; border-color: #f59e0b;">
+                    <h5>📝 Startcode für dich:</h5>
+                    <div class="code-box" style="background: #1e1e1e;">
+                        <span class="code-comment">&lt;!DOCTYPE html&gt;</span><br>
+                        <span class="code-tag">&lt;html</span> <span class="code-attribute">lang=</span><span class="code-value">"de"</span><span class="code-tag">&gt;</span><br>
+                        <span class="code-tag">&lt;head&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;meta</span> <span class="code-attribute">charset=</span><span class="code-value">"UTF-8"</span><span class="code-tag">&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;meta</span> <span class="code-attribute">name=</span><span class="code-value">"viewport"</span> <span class="code-attribute">content=</span><span class="code-value">"width=device-width, initial-scale=1.0"</span><span class="code-tag">&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;title&gt;</span>Mein Online Shop<span class="code-tag">&lt;/title&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Bootstrap CSS hier einbinden --&gt;</span><br>
+                        &nbsp;&nbsp;<br>
+                        <span class="code-tag">&lt;/head&gt;</span><br>
+                        <span class="code-tag">&lt;body&gt;</span><br><br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Hier kommt deine Navbar --&gt;</span><br>
+                        &nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Beispiel-Content damit man sieht dass die Navbar oben ist --&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;div</span> <span class="code-attribute">class=</span><span class="code-value">"container mt-5"</span><span class="code-tag">&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;h1&gt;</span>Willkommen in unserem Shop!<span class="code-tag">&lt;/h1&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;p&gt;</span>Hier kommt später der Inhalt...<span class="code-tag">&lt;/p&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;/div&gt;</span><br><br>
+                        &nbsp;&nbsp;<span class="code-comment">&lt;!-- Bootstrap JS hier einbinden --&gt;</span><br>
+                        &nbsp;&nbsp;<br>
+                        <span class="code-tag">&lt;/body&gt;</span><br>
+                        <span class="code-tag">&lt;/html&gt;</span>
+                    </div>
+                </div>
+
+                <div class="mini-task" style="background: #e0f2fe; border-color: #0284c7;">
+                    <h5>📋 Schritt-für-Schritt Anleitung:</h5>
+                    <ol>
+                        <li>
+                            <strong>Bootstrap CSS und JS einbinden</strong><br>
+                            <small>Denk daran: CSS im head, JS vor /body</small>
+                        </li>
+                        <li>
+                            <strong>Nav-Element erstellen</strong><br>
+                            <small>&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;</small>
+                        </li>
+                        <li>
+                            <strong>Container hinzufügen</strong><br>
+                            <small>&lt;div class="container"&gt; innerhalb der nav</small>
+                        </li>
+                        <li>
+                            <strong>Logo/Brand einfügen</strong><br>
+                            <small>&lt;a class="navbar-brand" href="#"&gt;🛍️ SuperShop&lt;/a&gt;</small>
+                        </li>
+                        <li>
+                            <strong>Hamburger-Button hinzufügen</strong><br>
+                            <small>navbar-toggler mit data-bs-target="#meineNav"</small>
+                        </li>
+                        <li>
+                            <strong>Collapse-Div mit Links erstellen</strong><br>
+                            <small>collapse navbar-collapse mit der passenden ID</small>
+                        </li>
+                        <li>
+                            <strong>Links rechtsbündig machen</strong><br>
+                            <small>ms-auto Klasse zur navbar-nav hinzufügen</small>
+                        </li>
+                    </ol>
+                </div>
+
+
+                <div class="try-it-box" style="background: #d1fae5; border-color: #10b981;">
+                    <h5>✅ So sollte dein Ergebnis aussehen:</h5>
+                    
+                    <div class="visual-example" style="border: 3px solid #10b981; padding: 20px; text-align: center;">
+                        <img src="beispiel-2.png" alt="Screenshot der fertigen Navigation" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    </div>
+                </div>
+
+                <div class="success-message" id="successMsg" style="display: block; margin-top: 30px;">
+                    <h4>🎉 Herzlichen Glückwunsch!</h4>
+                    <p class="mb-0">
+                        Du hast eine professionelle Navigation erstellt! Du kannst jetzt:
+                    </p>
+                    <ul class="mb-0 mt-2">
+                        <li>✅ Eine Bootstrap Navbar erstellen</li>
+                        <li>✅ Logo und Links hinzufügen</li>
+                        <li>✅ Verschiedene Farbschemas verwenden</li>
+                        <li>✅ Die Navigation responsive machen</li>
+                        <li>✅ Ein Hamburger-Menü implementieren</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background: #e0f2fe; border-color: #0284c7; margin-top: 20px;">
+                    <h5>💡 Bonus-Tipps:</h5>
+                    <ul class="mb-0">
+                        <li><strong>fixed-top</strong> - Macht die Navbar "sticky" (bleibt oben beim Scrollen)</li>
+                        <li><strong>shadow</strong> - Fügt einen schönen Schatten hinzu</li>
+                        <li><strong>py-3</strong> - Mehr Padding für größere Navbar</li>
+                        <li>Du kannst auch Bilder als Logo verwenden mit &lt;img&gt; statt Text</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
