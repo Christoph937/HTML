@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5.3 Übungsaufgaben</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Basis-Styling für die Übungsseite */
+        body {
+            background: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .exercise-container {
+            background: white;
+            margin: 30px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .exercise-header {
+            background: #0d6efd;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .exercise {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px;
+            margin: 0;
+        }
+
+        .exercise:last-child {
+            border-bottom: none;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .easy { background: #198754; color: white; }
+        .medium { background: #fd7e14; color: white; }
+        .hard { background: #dc3545; color: white; }
+
+        .hint {
+            background: #e7f3ff;
+            border-left: 4px solid #0d6efd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .resource-link {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .resource-link a {
+            color: #856404;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .playground {
+            background: #ffffff;
+            border: 2px solid #0d6efd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .playground-title {
+            background: #0d6efd;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 20px -20px;
+            font-weight: bold;
+            border-radius: 6px 6px 0 0;
+        }
+
+        /* Website Preview Styling */
+        .website-preview {
+            border: 3px solid #198754;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .preview-label {
+            background: #198754;
+            color: white;
+            padding: 8px 15px;
+            font-weight: bold;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-container">
+        <!-- Header -->
+        <div class="exercise-header">
+            <h1>🚀 Bootstrap 5.3 Deine erste Webseite</h1>
+            <p class="mb-0">Lerne Bootstrap durch den Aufbau einer echten Webseite!</p>
+        </div>
+
+        <!-- Intro zu Bootstrap -->
+        <div class="exercise">
+            <h2>📚 Was ist Bootstrap?</h2>
+            <p><strong>Bootstrap</strong> ist das beliebteste CSS-Framework der Welt! Es bietet:</p>
+            <ul>
+                <li>🎨 <strong>Vorgefertigte Komponenten</strong> (Buttons, Cards, Navigation, etc.)</li>
+                <li>📱 <strong>Responsive Grid-System</strong> (automatisch mobile-freundlich)</li>
+                <li>⚡ <strong>Schnelle Entwicklung</strong> (weniger CSS schreiben)</li>
+                <li>🎯 <strong>Konsistentes Design</strong> (professioneller Look)</li>
+            </ul>
+
+            <div class="resource-link">
+                📖 <strong>Offizielle Dokumentation:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap 5.3 Docs</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Lernziel:</h5>
+                <p>Wir bauen Schritt für Schritt eine kleine <strong>Produktwebseite</strong> auf mit:</p>
+                <ul class="mb-0">
+                    <li>Navigation mit Logo</li>
+                    <li>Hero-Bereich mit Titel und Button</li>
+                    <li>Produkt-Cards in Spalten</li>
+                    <li>Kontaktformular</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Aufgabe 1: Bootstrap einbinden -->
+        <div class="exercise">
+            <span class="difficulty easy">Leicht</span>
+            <h3>Aufgabe 1: Bootstrap 5.3 einbinden</h3>
+            <p><strong>Ziel:</strong> Bootstrap CSS und JavaScript in deine HTML-Seite einbinden</p>
+
+            <div class="resource-link">
+                📖 <strong>Ressourcen:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap Getting Started</a> |
+                <a href="https://www.w3schools.com/bootstrap5/bootstrap_get_started.php" target="_blank">W3Schools Bootstrap Start</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Konzept:</h5>
+                <p><strong>CDN (Content Delivery Network):</strong> Bootstrap wird von einem externen Server geladen - du musst es nicht herunterladen!</p>
+                <p><strong>CSS im &lt;head&gt;:</strong> Für das Styling der Komponenten</p>
+                <p><strong>JS vor &lt;/body&gt;:</strong> Für interaktive Komponenten (Dropdown, Modal, etc.)</p>
+            </div>
+
+            <div class="code-example">
+&lt;!-- Bootstrap CSS im &lt;head&gt; --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Bootstrap JS vor &lt;/body&gt; --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+            </div>
+
+            <div class="playground">
+                <div class="playground-title">✅ Bootstrap ist bereits eingebunden!</div>
+                <p>Teste es: Dieser Button verwendet Bootstrap-Klassen:</p>
+                <button class="btn btn-primary">Bootstrap Button!</button>
+                <button class="btn btn-success">Funktioniert!</button>
+            </div>
+        </div>
+
+        <!-- Aufgabe 2: Container und Grid -->
+        <div class="exercise">
+            <span class="difficulty easy">Leicht</span>
+            <h3>Aufgabe 2: Container und Grid-System verstehen</h3>
+            <p><strong>Ziel:</strong> Lerne das Bootstrap Grid-System mit Container, Rows und Columns</p>
+
+            <div class="resource-link">
+                📖 <strong>Ressourcen:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank">Bootstrap Grid System</a> |
+                <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank">Bootstrap Container</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Konzept:</h5>
+                <p><strong>Container:</strong> Wrapper für dein Content (.container oder .container-fluid)</p>
+                <p><strong>Row:</strong> Horizontale Zeile (.row)</p>
+                <p><strong>Column:</strong> Spalte (.col, .col-6, .col-md-4, etc.)</p>
+                <p><strong>12-Spalten-System:</strong> Eine Row hat maximal 12 Spalten</p>
+            </div>
+
+            <div class="code-example">
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-6"&gt;Halbe Breite&lt;/div&gt;
+        &lt;div class="col-6"&gt;Halbe Breite&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </div>
+
+            <div class="playground">
+                <div class="playground-title">🎯 Deine Aufgabe: Erstelle das Grid</div>
+                <p><strong>Erstelle:</strong> Container → Row → 3 Spalten (je 4 Spalten breit)</p>
+                
+                <!-- LÖSUNG: -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="bg-primary text-white p-3 text-center">Spalte 1</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-success text-white p-3 text-center">Spalte 2</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-warning text-white p-3 text-center">Spalte 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aufgabe 3: Navbar erstellen -->
+        <div class="exercise">
+            <span class="difficulty medium">Mittel</span>
+            <h3>Aufgabe 3: Navigation mit Logo erstellen</h3>
+            <p><strong>Ziel:</strong> Erstelle eine responsive Navbar für unsere Webseite</p>
+
+            <div class="resource-link">
+                📖 <strong>Ressourcen:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank">Bootstrap Navbar</a> |
+                <a href="https://www.w3schools.com/bootstrap5/bootstrap_navbar.php" target="_blank">W3Schools Navbar</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Konzept:</h5>
+                <p><strong>Navbar-Klassen:</strong> .navbar, .navbar-expand-lg, .navbar-light/.navbar-dark</p>
+                <p><strong>Navbar-Brand:</strong> Für Logo/Markenname (.navbar-brand)</p>
+                <p><strong>Navbar-Nav:</strong> Für Navigation-Links (.navbar-nav, .nav-item, .nav-link)</p>
+                <p><strong>Responsive:</strong> Automatischer Hamburger-Menü auf mobilen Geräten</p>
+            </div>
+
+            <div class="code-example">
+&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
+    &lt;div class="container"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;MeinLogo&lt;/a&gt;
+        &lt;div class="navbar-nav"&gt;
+            &lt;a class="nav-link" href="#"&gt;Home&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+            </div>
+
+            <div class="playground">
+                <div class="playground-title">🎯 Unsere Webseite beginnt!</div>
+                <!-- LÖSUNG: Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div class="container">
+                        <a class="navbar-brand fw-bold" href="#">🛍️ MeinShop</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#home">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#produkte">Produkte</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#kontakt">Kontakt</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Aufgabe 4: Hero Section -->
+        <div class="exercise">
+            <span class="difficulty medium">Mittel</span>
+            <h3>Aufgabe 4: Hero-Bereich mit Titel und Button</h3>
+            <p><strong>Ziel:</strong> Erstelle einen ansprechenden Header-Bereich</p>
+
+            <div class="resource-link">
+                📖 <strong>Ressourcen:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/utilities/spacing/" target="_blank">Bootstrap Spacing</a> |
+                <a href="https://getbootstrap.com/docs/5.3/components/buttons/" target="_blank">Bootstrap Buttons</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Konzept:</h5>
+                <p><strong>Utility-Klassen:</strong> .text-center, .py-5, .my-4 für schnelle Abstände</p>
+                <p><strong>Typography:</strong> .display-4, .lead für große Überschriften</p>
+                <p><strong>Buttons:</strong> .btn, .btn-primary, .btn-lg für Call-to-Action</p>
+            </div>
+
+            <div class="playground">
+                <div class="playground-title">🎯 Hero-Bereich für unsere Webseite</div>
+                <!-- LÖSUNG: Hero Section -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center py-5 my-4">
+                                <h1 class="display-4 fw-bold text-primary">Willkommen bei MeinShop</h1>
+                                <p class="lead text-muted">Entdecke unsere hochwertigen Produkte zu unschlagbaren Preisen</p>
+                                <a href="#produkte" class="btn btn-primary btn-lg mt-3">Jetzt einkaufen</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aufgabe 5: Product Cards -->
+        <div class="exercise">
+            <span class="difficulty hard">Schwer</span>
+            <h3>Aufgabe 5: Produkt-Cards in Spalten</h3>
+            <p><strong>Ziel:</strong> Erstelle responsive Produkt-Cards mit Bootstrap's Card-Component</p>
+
+            <div class="resource-link">
+                📖 <strong>Ressourcen:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/components/card/" target="_blank">Bootstrap Cards</a> |
+                <a href="https://www.w3schools.com/bootstrap5/bootstrap_cards.php" target="_blank">W3Schools Cards</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Konzept:</h5>
+                <p><strong>Card-Struktur:</strong> .card → .card-img-top → .card-body → .card-title/.card-text</p>
+                <p><strong>Responsive Columns:</strong> .col-md-4 = 3 Cards pro Zeile auf Desktop</p>
+                <p><strong>Spacing:</strong> .mb-4 für Abstände zwischen Cards</p>
+            </div>
+
+            <div class="code-example">
+&lt;div class="col-md-4 mb-4"&gt;
+    &lt;div class="card"&gt;
+        &lt;img src="..." class="card-img-top"&gt;
+        &lt;div class="card-body"&gt;
+            &lt;h5 class="card-title"&gt;Produktname&lt;/h5&gt;
+            &lt;p class="card-text"&gt;Beschreibung&lt;/p&gt;
+            &lt;a href="#" class="btn btn-primary"&gt;Kaufen&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </div>
+
+            <div class="playground">
+                <div class="playground-title">🎯 Produkt-Bereich unserer Webseite</div>
+                <!-- LÖSUNG: Product Cards -->
+                <div class="container" id="produkte">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h2 class="display-5 fw-bold">Unsere Produkte</h2>
+                            <p class="text-muted">Hochwertige Auswahl für jeden Geschmack</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-img-top bg-primary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <span class="text-white fs-1">📱</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Smartphone Pro</h5>
+                                    <p class="card-text">Das neueste Flaggschiff mit top Performance und Kamera.</p>
+                                    <p class="text-primary fw-bold fs-4">899€</p>
+                                    <a href="#" class="btn btn-primary">In den Warenkorb</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-img-top bg-success d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <span class="text-white fs-1">💻</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Laptop Ultra</h5>
+                                    <p class="card-text">Leistungsstarker Laptop für Arbeit und Gaming.</p>
+                                    <p class="text-primary fw-bold fs-4">1299€</p>
+                                    <a href="#" class="btn btn-primary">In den Warenkorb</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-img-top bg-warning d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <span class="text-white fs-1">🎧</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Kopfhörer Elite</h5>
+                                    <p class="card-text">Noise-Cancelling Kopfhörer mit Premium Sound.</p>
+                                    <p class="text-primary fw-bold fs-4">299€</p>
+                                    <a href="#" class="btn btn-primary">In den Warenkorb</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aufgabe 6: Kontaktformular -->
+        <div class="exercise">
+            <span class="difficulty hard">Schwer</span>
+            <h3>Aufgabe 6: Kontaktformular erstellen</h3>
+            <p><strong>Ziel:</strong> Erstelle ein ansprechendes Kontaktformular mit Bootstrap-Form-Komponenten</p>
+
+            <div class="resource-link">
+                📖 <strong>Ressourcen:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank">Bootstrap Forms</a> |
+                <a href="https://getbootstrap.com/docs/5.3/forms/form-control/" target="_blank">Form Controls</a>
+            </div>
+
+            <div class="hint">
+                <h5>💡 Konzept:</h5>
+                <p><strong>Form-Klassen:</strong> .form-control für Inputs, .form-label für Labels</p>
+                <p><strong>Validation:</strong> .is-valid, .is-invalid für Feedback</p>
+                <p><strong>Layout:</strong> .mb-3 für Abstände zwischen Form-Groups</p>
+            </div>
+
+            <div class="playground">
+                <div class="playground-title">🎯 Kontakt-Bereich unserer Webseite</div>
+                <!-- LÖSUNG: Contact Form -->
+                <div class="container" id="kontakt">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="text-center mb-5">
+                                <h2 class="display-5 fw-bold">Kontakt</h2>
+                                <p class="text-muted">Haben Sie Fragen? Wir helfen gerne!</p>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="vorname" class="form-label">Vorname</label>
+                                                <input type="text" class="form-control" id="vorname" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="nachname" class="form-label">Nachname</label>
+                                                <input type="text" class="form-control" id="nachname" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">E-Mail</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="betreff" class="form-label">Betreff</label>
+                                            <select class="form-control" id="betreff">
+                                                <option>Allgemeine Anfrage</option>
+                                                <option>Produktsupport</option>
+                                                <option>Bestellung</option>
+                                                <option>Sonstiges</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="nachricht" class="form-label">Nachricht</label>
+                                            <textarea class="form-control" id="nachricht" rows="4" required></textarea>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg">Nachricht senden</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finale Webseite -->
+        <div class="exercise">
+            <span class="difficulty hard">Finale</span>
+            <h3>🎉 Unsere fertige Webseite!</h3>
+            <p><strong>Gratulation!</strong> Du hast eine komplette responsive Webseite mit Bootstrap erstellt!</p>
+
+            <div class="website-preview">
+                <div class="preview-label">🌟 Deine fertige MeinShop Webseite</div>
+                
+                <!-- COMPLETE WEBSITE -->
+                <div style="background: white;">
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                        <div class="container">
+                            <a class="navbar-brand fw-bold" href="#">🛍️ MeinShop</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#finalNavbar">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="finalNavbar">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#produkte">Produkte</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- Hero Section -->
+                    <div class="container">
+                        <div class="text-center py-5 my-4">
+                            <h1 class="display-4 fw-bold text-primary">Willkommen bei MeinShop</h1>
+                            <p class="lead text-muted">Entdecke unsere hochwertigen Produkte zu unschlagbaren Preisen</p>
+                            <a href="#produkte" class="btn btn-primary btn-lg mt-3">Jetzt einkaufen</a>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="container mb-5">
+                        <div class="text-center mb-5">
+                            <h2 class="display-5 fw-bold">Unsere Produkte</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-img-top bg-primary d-flex align-items-center justify-content-center" style="height: 150px;">
+                                        <span class="text-white fs-1">📱</span>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Smartphone Pro</h5>
+                                        <p class="text-primary fw-bold">899€</p>
+                                        <a href="#" class="btn btn-primary btn-sm">Kaufen</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-img-top bg-success d-flex align-items-center justify-content-center" style="height: 150px;">
+                                        <span class="text-white fs-1">💻</span>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Laptop Ultra</h5>
+                                        <p class="text-primary fw-bold">1299€</p>
+                                        <a href="#" class="btn btn-primary btn-sm">Kaufen</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-img-top bg-warning d-flex align-items-center justify-content-center" style="height: 150px;">
+                                        <span class="text-white fs-1">🎧</span>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Kopfhörer Elite</h5>
+                                        <p class="text-primary fw-bold">299€</p>
+                                        <a href="#" class="btn btn-primary btn-sm">Kaufen</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form (kompakt) -->
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center mb-3">Kontakt</h5>
+                                        <form>
+                                            <div class="mb-2">
+                                                <input type="text" class="form-control form-control-sm" placeholder="Name">
+                                            </div>
+                                            <div class="mb-2">
+                                                <input type="email" class="form-control form-control-sm" placeholder="E-Mail">
+                                            </div>
+                                            <div class="mb-2">
+                                                <textarea class="form-control form-control-sm" rows="2" placeholder="Nachricht"></textarea>
+                                            </div>
+                                            <div class="text-center">
+                                                <button class="btn btn-primary btn-sm">Senden</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hint">
+                <h5>🎯 Was du gelernt hast:</h5>
+                <ul>
+                    <li>✅ <strong>Bootstrap einbinden</strong> - CDN für CSS und JS</li>
+                    <li>✅ <strong>Grid-System</strong> - Container, Rows, Columns</li>
+                    <li>✅ <strong>Navbar</strong> - Responsive Navigation mit Logo</li>
+                    <li>✅ <strong>Typography</strong> - Display-Klassen und Utility-Classes</li>
+                    <li>✅ <strong>Cards</strong> - Produkt-Layout mit flexiblen Karten</li>
+                    <li>✅ <strong>Forms</strong> - Schöne Formulare mit Bootstrap-Styling</li>
+                    <li>✅ <strong>Responsive Design</strong> - Automatisch mobile-freundlich!</li>
+                </ul>
+            </div>
+
+            <div class="resource-link">
+                🚀 <strong>Nächste Schritte:</strong>
+                <a href="https://getbootstrap.com/docs/5.3/components/accordion/" target="_blank">Bootstrap Accordion</a> |
+                <a href="https://getbootstrap.com/docs/5.3/components/modal/" target="_blank">Bootstrap Modals</a> |
+                <a href="https://getbootstrap.com/docs/5.3/utilities/flex/" target="_blank">Bootstrap Flexbox</a>
+            </div>
+        </div>
+
+        <!-- Bonus Aufgaben -->
+        <div class="exercise">
+            <h3>🎨 Bonus-Aufgaben für Fortgeschrittene</h3>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>🔥 Modal-Dialog hinzufügen</h5>
+                    <p>Füge einen Modal-Dialog hinzu, der sich öffnet wenn man auf "Kaufen" klickt.</p>
+                    <div class="resource-link">
+                        📖 <a href="https://getbootstrap.com/docs/5.3/components/modal/" target="_blank">Bootstrap Modal Docs</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>📱 Carousel für Produktbilder</h5>
+                    <p>Erstelle ein Bildkarussell für eine Produktdetail-Seite.</p>
+                    <div class="resource-link">
+                        📖 <a href="https://getbootstrap.com/docs/5.3/components/carousel/" target="_blank">Bootstrap Carousel Docs</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>🎯 Accordion FAQ-Bereich</h5>
+                    <p>Füge einen FAQ-Bereich mit klappbaren Fragen hinzu.</p>
+                    <div class="resource-link">
+                        📖 <a href="https://getbootstrap.com/docs/5.3/components/accordion/" target="_blank">Bootstrap Accordion Docs</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>⭐ Toast-Notifications</h5>
+                    <p>Zeige Erfolgsmeldungen an, wenn Formulare abgesendet werden.</p>
+                    <div class="resource-link">
+                        📖 <a href="https://getbootstrap.com/docs/5.3/components/toasts/" target="_blank">Bootstrap Toast Docs</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playground mt-4">
+                <div class="playground-title">💡 Experimentier-Bereich</div>
+                <p>Hier kannst du die Bonus-Features ausprobieren:</p>
+                
+                <!-- Modal Example -->
+                <button type="button" class="btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Modal öffnen
+                </button>
+                
+                <!-- Toast Example -->
+                <button type="button" class="btn btn-warning me-3" onclick="showToast()">
+                    Toast zeigen
+                </button>
+                
+                <!-- Accordion Example -->
+                <div class="accordion mt-3" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Wie lange dauert der Versand?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Der Versand dauert in der Regel 2-3 Werktage innerhalb Deutschlands.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Kann ich meine Bestellung stornieren?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Ja, bis 24 Stunden nach der Bestellung können Sie kostenfrei stornieren.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cheat Sheet -->
+        <div class="exercise">
+            <h3>📋 Bootstrap 5.3 Cheat Sheet</h3>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>🎨 Layout & Grid</h5>
+                    <div class="code-example">
+.container / .container-fluid
+.row
+.col / .col-6 / .col-md-4
+.d-flex / .justify-content-center
+.text-center / .text-start / .text-end
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>🎯 Komponenten</h5>
+                    <div class="code-example">
+.btn / .btn-primary / .btn-lg
+.card / .card-body / .card-title
+.navbar / .navbar-brand / .nav-link
+.form-control / .form-label
+.modal / .accordion / .carousel
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h5>📏 Spacing (Margin & Padding)</h5>
+                    <div class="code-example">
+.m-3 / .mt-3 / .mb-3 / .mx-3 / .my-3
+.p-3 / .pt-3 / .pb-3 / .px-3 / .py-3
+(0-5 für verschiedene Größen)
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>🌈 Farben & Text</h5>
+                    <div class="code-example">
+.bg-primary / .bg-success / .bg-warning
+.text-primary / .text-muted / .text-white
+.fw-bold / .fw-normal
+.display-1 bis .display-6 / .lead
+                    </div>
+                </div>
+            </div>
+
+            <div class="hint mt-4">
+                <h5>💡 Pro-Tipps:</h5>
+                <ul class="mb-0">
+                    <li>📱 <strong>Mobile First:</strong> Bootstrap ist standardmäßig responsive!</li>
+                    <li>🎨 <strong>Customize:</strong> Verwende CSS-Variablen für eigene Farben</li>
+                    <li>⚡ <strong>Performance:</strong> Lade nur die Bootstrap-Komponenten, die du brauchst</li>
+                    <li>🔧 <strong>Debug:</strong> Nutze Browser-Entwicklertools zum Experimentieren</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🛒 Produkt hinzufügen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Möchten Sie dieses Produkt wirklich zum Warenkorb hinzufügen?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                    <button type="button" class="btn btn-primary">Hinzufügen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto">✅ Erfolg</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Nachricht erfolgreich gesendet!
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function showToast() {
+            const toastElement = document.getElementById('liveToast');
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+    </script>
+</body>
+</html>
